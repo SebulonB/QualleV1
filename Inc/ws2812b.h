@@ -13,8 +13,6 @@
 // How many LEDs are in the series
 #define WS2812B_NUMBER_OF_LEDS 4  //Number of LED + 1
 
-// Number of output LED strips. Each has its own buffer.
-#define WS2812_BUFFER_COUNT 1
 
 // Choose one of the bit-juggling setpixel implementation
 // *******************************************************
@@ -28,6 +26,9 @@
 // ******************
 // This value sets number of periods to generate 50uS Treset signal
 #define WS2812_RESET_PERIOD 12
+
+// Number of output LED strips. Each has its own buffer.
+#define WS2812_BUFFER_COUNT 1
 
 typedef struct WS2812_BufferItem {
 	uint8_t* frameBufferPointer;
@@ -63,6 +64,8 @@ typedef struct WS2812_Struct
 static void ws2812b_set_pixel(uint8_t row, uint16_t column, uint8_t red, uint8_t green, uint8_t blue);
 void DMA_TransferCompleteHandler(DMA_HandleTypeDef *DmaHandle);
 void DMA_TransferHalfHandler(DMA_HandleTypeDef *DmaHandle);
+void ws2812b_init(void);
+
 void visInit(void);
 void visHandle(void);
 

@@ -3,6 +3,7 @@
 "stm32f303k8_nucleo\main.o"
 "stm32f303k8_nucleo\stm32f3xx_it.o"
 "stm32f303k8_nucleo\ws2812b.o"
+"stm32f303k8_nucleo\led_visuals.o"
 "stm32f303k8_nucleo\stm32f3xx_hal_tim_ex.o"
 "stm32f303k8_nucleo\stm32f3xx_hal_dma.o"
 "stm32f303k8_nucleo\stm32f3xx_hal_rcc_ex.o"

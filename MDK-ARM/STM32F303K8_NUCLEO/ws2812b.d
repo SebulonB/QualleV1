@@ -30,3 +30,4 @@ stm32f303k8_nucleo\ws2812b.o: ..\..\..\..\..\..\Drivers\STM32F3xx_HAL_Driver\Inc
 stm32f303k8_nucleo\ws2812b.o: ..\Inc\ws2812b.h
 stm32f303k8_nucleo\ws2812b.o: ..\Inc\ws2812b.h
 stm32f303k8_nucleo\ws2812b.o: ..\..\..\..\..\..\Drivers\BSP\STM32F3xx_Nucleo_32\stm32f3xx_nucleo_32.h
+stm32f303k8_nucleo\ws2812b.o: ..\Inc\ws2812_buffer.h

@@ -19,8 +19,8 @@
 
 #include "stm32f3xx_hal.h"
 #include "ws2812b.h"
+#include "ws2812_buffer.h"
 
-WS2812_Struct ws2812b;
 
 // Define source arrays for my DMAs
 uint32_t WS2812_IO_High[] =  { WS2812B_PINS };
@@ -40,6 +40,8 @@ uint8_t frameBuffer2[3*20];
 #define Green(c) ((uint8_t)((c >> 8) & 0xFF))
 #define Blue(c) ((uint8_t)(c & 0xFF))
 
+
+WS2812_Struct ws2812b;
 
 // Gamma correction table
 const uint8_t gammaTable[] = {
@@ -553,6 +555,21 @@ static void ws2812b_set_pixel(uint8_t row, uint16_t column, uint8_t red, uint8_t
 void ws2812b_init()
 {
 	
+	
+	// Set output channel/pin, GPIO_PIN_0 = 0, for GPIO_PIN_5 = 5 - this has to correspond to WS2812B_PINS
+	ws2812b.item[0].channel = 0;
+	// Your RGB framebuffer
+	ws2812b.item[0].frameBufferPointer = frameBuffer;
+	// RAW size of framebuffer
+	ws2812b.item[0].frameBufferSize = sizeof(frameBuffer);
+
+
+	// If you need more parallel LED strips, increase the WS2812_BUFFER_COUNT value
+	ws2812b.item[1].channel = 3;
+	ws2812b.item[1].frameBufferPointer = frameBuffer2;
+	ws2812b.item[1].frameBufferSize = sizeof(frameBuffer2);
+
+	
 	ws2812b_gpio_init();
 	DMA_init();
 	TIM2_init();
@@ -647,7 +664,7 @@ void visHandle2()
 {
 	static uint32_t timestamp;
 
-	if(HAL_GetTick() - timestamp > 10)
+	if(HAL_GetTick() - timestamp > 20)
 	{
 		timestamp = HAL_GetTick();
 
@@ -672,19 +689,6 @@ void visHandle2()
 
 void visInit()
 {
-	// Set output channel/pin, GPIO_PIN_0 = 0, for GPIO_PIN_5 = 5 - this has to correspond to WS2812B_PINS
-	ws2812b.item[0].channel = 0;
-	// Your RGB framebuffer
-	ws2812b.item[0].frameBufferPointer = frameBuffer;
-	// RAW size of framebuffer
-	ws2812b.item[0].frameBufferSize = sizeof(frameBuffer);
-
-
-	// If you need more parallel LED strips, increase the WS2812_BUFFER_COUNT value
-	ws2812b.item[1].channel = 3;
-	ws2812b.item[1].frameBufferPointer = frameBuffer2;
-	ws2812b.item[1].frameBufferSize = sizeof(frameBuffer2);
-
 
 	ws2812b_init();
 }

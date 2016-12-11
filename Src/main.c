@@ -1,6 +1,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "ws2812b.h"
+#include "led_visuals.h"
 
 /** @addtogroup STM32F3xx_HAL_Examples
   * @{
@@ -32,7 +33,7 @@ int main(void)
   SystemClock_Config();
 
 
-  visInit();
+  ws2812b_init();
 
   while (1)
   {

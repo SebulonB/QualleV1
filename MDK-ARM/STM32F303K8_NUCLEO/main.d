@@ -29,3 +29,4 @@ stm32f303k8_nucleo\main.o: ..\..\..\..\..\..\Drivers\STM32F3xx_HAL_Driver\Inc\st
 stm32f303k8_nucleo\main.o: ..\..\..\..\..\..\Drivers\BSP\STM32F3xx_Nucleo_32\stm32f3xx_nucleo_32.h
 stm32f303k8_nucleo\main.o: ..\Inc\ws2812b.h
 stm32f303k8_nucleo\main.o: ..\Inc\ws2812b.h
+stm32f303k8_nucleo\main.o: ..\Inc\led_visuals.h
