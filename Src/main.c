@@ -38,7 +38,7 @@ int main(void)
 	
   while (1)
   {
-	  visHandle();
+	  led_visuals_handle();
   }
 }
 

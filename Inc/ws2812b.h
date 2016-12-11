@@ -13,6 +13,7 @@
 // How many LEDs are in the series
 #define WS2812B_NUMBER_OF_LEDS 4  //Number of LED + 1
 
+#define WS2812B_NUMBER_OF_LEDS_LINE1 3
 
 // Choose one of the bit-juggling setpixel implementation
 // *******************************************************
@@ -65,6 +66,8 @@ static void ws2812b_set_pixel(uint8_t row, uint16_t column, uint8_t red, uint8_t
 void DMA_TransferCompleteHandler(DMA_HandleTypeDef *DmaHandle);
 void DMA_TransferHalfHandler(DMA_HandleTypeDef *DmaHandle);
 void ws2812b_init(void);
+
+void ws2812b_handle(void);
 
 struct WS2812_Struct *ws2812b_get_buffer(void);
 uint8_t *ws2812b_get_framebuffer(unsigned num);
