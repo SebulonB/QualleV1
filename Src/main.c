@@ -32,12 +32,11 @@ int main(void)
   /* Configure the system clock to 64 MHz */
   SystemClock_Config();
 
-
-  ws2812b_init();
+	led_visuals_init();
 
   while (1)
   {
-	  visHandle();
+	  led_visuals_handle();
   }
 }
 

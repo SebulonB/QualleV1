@@ -66,7 +66,7 @@ void DMA_TransferCompleteHandler(DMA_HandleTypeDef *DmaHandle);
 void DMA_TransferHalfHandler(DMA_HandleTypeDef *DmaHandle);
 void ws2812b_init(void);
 
-void visInit(void);
-void visHandle(void);
+void ws2812b_get_buffer(struct WS2812_Struct *ws);
+void ws2812b_handle(void);
 
 #endif /* WS2812B_H_ */
