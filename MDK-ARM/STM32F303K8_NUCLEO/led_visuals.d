@@ -27,3 +27,7 @@ stm32f303k8_nucleo\led_visuals.o: ..\..\..\..\..\..\Drivers\STM32F3xx_HAL_Driver
 stm32f303k8_nucleo\led_visuals.o: ..\..\..\..\..\..\Drivers\STM32F3xx_HAL_Driver\Inc\stm32f3xx_hal_pwr_ex.h
 stm32f303k8_nucleo\led_visuals.o: ..\..\..\..\..\..\Drivers\STM32F3xx_HAL_Driver\Inc\stm32f3xx_hal_tim.h
 stm32f303k8_nucleo\led_visuals.o: ..\..\..\..\..\..\Drivers\STM32F3xx_HAL_Driver\Inc\stm32f3xx_hal_tim_ex.h
+stm32f303k8_nucleo\led_visuals.o: ..\Inc\led_visuals.h
+stm32f303k8_nucleo\led_visuals.o: ..\Inc\ws2812b.h
+stm32f303k8_nucleo\led_visuals.o: ..\Inc\ws2812b.h
+stm32f303k8_nucleo\led_visuals.o: ..\..\..\..\..\..\Drivers\BSP\STM32F3xx_Nucleo_32\stm32f3xx_nucleo_32.h

@@ -33,8 +33,9 @@ int main(void)
   SystemClock_Config();
 
 
-  ws2812b_init();
-
+  //ws2812b_init();
+  led_visuals_init();
+	
   while (1)
   {
 	  visHandle();

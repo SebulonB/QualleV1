@@ -66,6 +66,9 @@ void DMA_TransferCompleteHandler(DMA_HandleTypeDef *DmaHandle);
 void DMA_TransferHalfHandler(DMA_HandleTypeDef *DmaHandle);
 void ws2812b_init(void);
 
+struct WS2812_Struct *ws2812b_get_buffer(void);
+uint8_t *ws2812b_get_framebuffer(unsigned num);
+
 void visInit(void);
 void visHandle(void);
 

@@ -556,18 +556,18 @@ void ws2812b_init()
 {
 	
 	
-	// Set output channel/pin, GPIO_PIN_0 = 0, for GPIO_PIN_5 = 5 - this has to correspond to WS2812B_PINS
-	ws2812b.item[0].channel = 0;
-	// Your RGB framebuffer
-	ws2812b.item[0].frameBufferPointer = frameBuffer;
-	// RAW size of framebuffer
-	ws2812b.item[0].frameBufferSize = sizeof(frameBuffer);
+//	// Set output channel/pin, GPIO_PIN_0 = 0, for GPIO_PIN_5 = 5 - this has to correspond to WS2812B_PINS
+//	ws2812b.item[0].channel = 0;
+//	// Your RGB framebuffer
+//	ws2812b.item[0].frameBufferPointer = frameBuffer;
+//	// RAW size of framebuffer
+//	ws2812b.item[0].frameBufferSize = sizeof(frameBuffer);
 
 
-	// If you need more parallel LED strips, increase the WS2812_BUFFER_COUNT value
-	ws2812b.item[1].channel = 3;
-	ws2812b.item[1].frameBufferPointer = frameBuffer2;
-	ws2812b.item[1].frameBufferSize = sizeof(frameBuffer2);
+//	// If you need more parallel LED strips, increase the WS2812_BUFFER_COUNT value
+//	ws2812b.item[1].channel = 3;
+//	ws2812b.item[1].frameBufferPointer = frameBuffer2;
+//	ws2812b.item[1].frameBufferSize = sizeof(frameBuffer2);
 
 	
 	ws2812b_gpio_init();
@@ -586,6 +586,19 @@ void ws2812b_handle()
 		WS2812_sendbuf();
 	}
 
+}
+
+struct WS2812_Struct *ws2812b_get_buffer(void){
+  return &ws2812b;
+}
+
+uint8_t *ws2812b_get_framebuffer(unsigned num){
+	
+	if(num == 0)
+		return frameBuffer;
+	else
+		return frameBuffer2;
+	
 }
 
 
